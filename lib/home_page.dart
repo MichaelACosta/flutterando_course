@@ -8,23 +8,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var counter = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Curso Flutter'),
       ),
-      body: Center(
-          child: Text('Flutterando $counter'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
+      body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.red,
+              ),
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.blue,
+              ),
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.green,
+              )
+            ],
+            ),
       ),
     );
   }
