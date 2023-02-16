@@ -8,6 +8,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context){
 
     var controller = HomeController.of(context);
+    final size = MediaQuery.of(context).size;
+    final navigation = Navigator.of(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
