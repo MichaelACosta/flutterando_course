@@ -13,38 +13,43 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Curso Flutter'),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(child: TextField(controller: controller)),
-                IconButton(onPressed: () { 
-                  final text = controller.text;
-                  setState(() {
-                    list.add(text);
-                  });
-                  controller.clear();
-                 }, icon: const Icon(Icons.add))
-              ],
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Image.asset(
+                'assets/imgs/flutter-image.jpeg',
+                fit: BoxFit.cover,
+              )
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: list.length,
-              itemBuilder: (context, index) {
-                final item = list[index];
-                return ListTile(
-                  title: Text(item),
-                );
-              },
+            Container(
+              color: Colors.black.withOpacity(0.6),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
             ),
-          ),
-        ],
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const FlutterLogo(
+                    size: 150,
+                    style: FlutterLogoStyle.horizontal,
+                    textColor: Colors.white,
+                  ),
+                  ElevatedButton(
+                    onPressed: () { },
+                    child: const Text('Entrar')
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
